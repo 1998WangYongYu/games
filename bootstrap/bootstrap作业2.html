@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.4.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+			    <div class="container-fluid"> 
+			    <div class="navbar-header">
+			        <a class="navbar-brand" href="#">科创教育</a>
+			    </div>
+			    <ul class="nav navbar-nav navbar-right"> 
+		            <li><a href="#"><span class="glyphicon glyphicon-user"></span> 
+						<button class="btn btn-xs" data-toggle="modal" data-target="#myModal1">注册</button>
+						<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						        <div class="modal-content">
+						            <div class="modal-header">
+						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                <h4 class="modal-title" id="myModalLabel">请新用户注册</h4>
+						            </div>
+						            <div class="modal-body">用户名：<input></input></div>
+						            <div class="modal-body">密码：&nbsp;&nbsp;&nbsp;<input></input></div>
+						            <div class="modal-footer">
+						                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						                <button type="button" class="btn btn-primary">提交注册</button>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+		            </a></li> 
+		            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+		            	<button class="btn btn-xs" data-toggle="modal" data-target="#myModal">登录</button>
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						        <div class="modal-content">
+						            <div class="modal-header">
+						                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                <h4 class="modal-title" id="myModalLabel">请用户登录</h4>
+						            </div>
+						            <div class="modal-body">用户名：<input></input></div>
+						            <div class="modal-body">密码：&nbsp;&nbsp;&nbsp;<input></input></div>
+						            <div class="modal-footer">
+						                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						                <button type="button" class="btn btn-primary">提交登录</button>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+		            </a></li> 
+		        </ul>
+			    <form class="navbar-form navbar-right" role="search">
+			        <div class="form-group">
+			            <input type="text" class="form-control" placeholder="搜索"><button type="submit" class="btn btn-active glyphicon glyphicon-search" style="margin-top:-3px ;"></button>
+			        </div>
+			    </form> 
+			    </div>
+			</nav>
+			<nav>
+				<ul class="nav nav-tabs">
+					<li><a href="bootstrap作业.html">IOS</a></li>
+					<li><a href="bootstrap作业1.html">精品推荐</a></li>
+					<li><a href="bootstrap作业2.html">会员管理</a></li>
+					<li><a href="#java"  data-toggle="tab">SVN</a></li>
+					<li><a href="#php"  data-toggle="tab">IOS</a></li>
+					<li class="dropdown">
+		                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		                    JAVA<p class="caret"></p>
+		                </a>
+		                <ul class="dropdown-menu">
+		                    <li><a href="#">jmeter</a></li>
+		                    <li><a href="#">EJB</a></li>
+		                    <li><a href="#">Jasper Report</a></li>
+		                    <li class="divider"></li>
+		                    <li><a href="#">分离的链接</a></li>
+		                    <li class="divider"></li>
+		                    <li><a href="#">另一个分离的链接</a></li>
+		                </ul>
+		            </li>
+				</ul>
+			</nav>
+			<div class="col-lg-12 text-center bg-primary" style="height: 130px;">
+				<h1 style="color: black;">科创教育集团管理系统</h1>
+			</div>
+			<table class="table table-hover table-striped table-bordered table-">
+				<caption>学生信息</caption>
+				<thead>
+					<th class="success">姓名</th>
+					<th class="success">年龄</th>
+					<th class="success">班级</th>
+					<th class="success">专业</th>
+					<th class="success">联系方式</th>
+					<th class="success">地址</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>张三</td>
+						<td>18</td>
+						<td>1701</td>
+						<td>软件</td>
+						<td>17048321545</td>
+						<td>北京</td>
+					</tr>
+					<tr>
+						<td>李四</td>
+						<td>19</td>
+						<td>1702</td>
+						<td>研究生</td>
+						<td>17648321115</td>
+						<td>西藏</td>
+					</tr>
+					<tr>
+						<td>王维</td>
+						<td>28</td>
+						<td>1703</td>
+						<td>老师</td>
+						<td>13548321545</td>
+						<td>天津</td>
+					</tr>
+					<tr>
+						<td>张侧</td>
+						<td>18</td>
+						<td>1701</td>
+						<td>网页</td>
+						<td>18621545485</td>
+						<td>重庆</td>
+					</tr>
+					<tr>
+						<td>李小龙</td>
+						<td>19</td>
+						<td>1706</td>
+						<td>工程师</td>
+						<td>13454836548</td>
+						<td>广州</td>
+					</tr>
+					<tr>
+						<td>王佳</td>
+						<td>28</td>
+						<td>1703</td>
+						<td>服务员</td>
+						<td>17052151565</td>
+						<td>上海</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="col-lg-12 text-center bg-primary" style="height: 100px;">
+				<h3 style="color: black;line-height: 40px;">奋达教育集团管理系统,违者必究</h3>
+			</div>
+	</body>
+</html>
