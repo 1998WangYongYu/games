@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		
+	</head>
+	<body>
+		<table class="table table-striped">
+			<tr>
+				<td><input type="userId" id="userId" placeholder="请输入会员号"></td>
+				<td><input type="userName" id="userName" placeholder="请输入会员名"></td>
+				<td><input type="userAge" id="userAge" placeholder="请输入年龄"></td>
+				<td><input type="userAdd" id="userAdd" placeholder="请输入地址"></td>
+				<td><a href="#" class="btn btn-success" id="add">添加</a></td>
+			</tr>
+		</table>
+		<hr/>
+		<legend>会员信息</legend>
+		<fieldset>
+
+		</fieldset>
+		<hr/>
+	</body>
+</html>
+<script type="text/template" id="table">
+	<table class="table table-bordered" id="test">
+		<thead>
+			<tr>
+				<td>用户ID</td>
+				<td>用户名</td>
+				<td>年龄</td>
+				<td>地址</td>
+				<td>操作</td>
+			</tr>
+		</thead>
+		<tbody>
+			%{
+				for(var i=0;i<list.length;i++){
+					var u=list[i];
+			}%
+					<tr>
+						<td>{=u.userId}</td>
+						<td>{=u.userName}</td>
+						<td>{=u.userAge}</td>
+						<td>{=u.userAdd}</td>
+						<td><a href="#" class="btn btn-danger" id="{=u.userId}">删除</a></td>
+					</tr>
+			%{
+				}
+			}%
+		</tbody>
+	</table>
+</script>
+<script src="jquery-1.4.js" type="text/javascript" charset="utf-8"></script>
+<script src="easy.templatejs.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="require.js" data-main="/HBuilderProjects/require/index"></script>
