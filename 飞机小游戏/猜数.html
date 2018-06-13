@@ -1,0 +1,194 @@
+<html>
+	<head>
+		<title>模板</title>
+	</head>
+	<style>
+		#div1{
+			width:400px;
+			height:200px;
+			border:1px gray solid;
+			margin-top:30px;
+			font-size:30px;
+			line-height:198px;
+		}
+		
+		#div2{
+			width:300px;
+			height:50px;
+			border:1px gray solid;
+			margin-top:20px;
+			padding-top:12px;
+		}
+		
+		#div3{
+			width:300px;
+			height:50px;
+			border:1px gray solid;
+			margin-top:20px;
+			padding-top:12px;
+		}
+		
+		#div4{
+			width:300px;
+			height:50px;
+			border:1px gray solid;
+			margin-top:20px;
+			padding-top:12px;
+			font-size:40px;
+			color:green;
+		}
+		
+		
+	</style>
+
+	<script>
+		window.onload = function(){
+			var level=100;			//要猜的随机数范围
+			var begin = false;		//开始状态
+			var over = true;		//结束状态
+			var timer = null;		//定时器
+			var timeNumber = 60;	//时间，倒计时
+			var thisNumber=0;        //产生的要猜的随机数
+			var result = false;    //假设未猜对
+			var cnt = 0;    //猜的次数
+			
+			var oIn = document.getElementById('in1');         //输入框
+			var oBt = document.getElementById('bt');			//猜一猜按钮
+			var oBg = document.getElementById('bg');			//开始按钮
+			var oOver = document.getElementById('ov');			//结束按钮
+			var oSc = document.getElementById('sc');			//难度级别选择下拉列表
+			var aOption = oSc.getElementsByTagName('option');		//下拉列表的各项
+			var oDiv = document.getElementById('div1');				//显示框
+			var oTimeDiv = document.getElementById('div4');			//显示剩余时间框
+			
+			function init(){       //初始化按钮状态函数
+				thisNumber = parseInt(Math.random()*level+1);
+				oDiv.style.background = "white";
+				oDiv.style.color = "black";
+				oDiv.innerHTML = '0~'+level;
+				cnt = 0;
+				timeNumber = 60;
+				begin = false;
+				over = true;
+				result = false;
+				oBg.disabled = false;
+				oSc.disabled = false;
+				oBt.disabled = true;
+				oOver.disabled = true;
+				oIn.disabled = true;
+			}
+			init();      //初始化
+			
+			function bg(){         //开始后标签状态
+				begin = true;
+				oBt.disabled = false;
+				oOver.disabled = false;
+				oIn.disabled = false;
+				oBg.disabled = true;
+				oSc.disabled = true;
+				over = false;
+			}
+			
+			
+			
+			function underTime(){
+				timeNumber--;
+				if(timeNumber>40){
+					oTimeDiv.style.color = 'green';
+				} else if(timeNumber>20){
+					oTimeDiv.style.color = 'blue';
+				} else if(timeNumber>10){
+					oTimeDiv.style.color = 'red';
+				} else {
+					if(timeNumber %2 == 1){
+						oTimeDiv.style.color = 'yellow';
+					} else {
+						oTimeDiv.style.color = 'red';
+					}
+				}
+				oTimeDiv.innerHTML = timeNumber;
+				if(timeNumber ==0){
+					clearInterval(timer);
+					oDiv.style.background = "black";
+					oDiv.style.color = "white";
+					oDiv.innerHTML = "YOU LOSE!";
+				} else if(result){
+					clearInterval(timer);
+					oDiv.style.background = "red";
+					oDiv.style.color = "white";
+					oDiv.innerHTML = "YOU WIN! 用时"+(60-timeNumber)+",次数"+cnt;
+				}
+			}
+			
+			
+			
+			oSc.onchange = function(){
+				level=100;
+				for(var i=0;i<aOption.length;i++){
+					if(aOption[i].selected==true){
+						level=level*Math.pow(10,i);
+						oDiv.innerHTML = '0~'+level;
+						return;
+					}
+				}
+			}
+			
+			oBg.onclick = function(){
+				bg();
+				timer = setInterval(underTime,1000);
+			}
+			
+			oBt.onclick = function(){
+				cnt++;
+				var userNumber = parseInt(oIn.value);
+				if(isNaN(userNumber)){
+					oDiv.innerHTML = "输入错误";
+				} else if(userNumber>thisNumber){
+					oDiv.innerHTML = "你猜大了";
+				} else if(userNumber <thisNumber){
+					oDiv.innerHTML = "你猜小了";
+				} else {
+					result = true;
+					underTime();
+				}
+			}
+			
+			oOver.onclick = function(){
+				clearInterval(timer);
+				init();
+			}
+			
+			
+		}
+	</script>
+
+	<body>
+    	<center>
+        	<h1 style="margin-top:50px;">猜数游戏</h1>
+        	<div id="div1">
+            </div>
+            <div id="div2">
+            	<input id="in1" type = "text" value="0" style="border:1px green solid">
+                <input id="bt" type ="button" value ="猜一猜">
+            </div>
+            <div id="div3">
+            	<input id="bg" type="button" value = "开始" >
+                难度级别：
+                <select id="sc">
+                	<option selected>一级</option>
+                    <option>二级</option>
+                    <option>三级</option>
+                    <option>四级</option>
+                </select>
+                <input id="ov" type="button" value = "结束">
+            </div>
+            
+             <div id="div4">
+             	
+             </div>
+        	
+        </center>
+        
+    	
+	</body>
+</html>
